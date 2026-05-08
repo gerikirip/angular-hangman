@@ -1,0 +1,13 @@
+<div class="keyboard">
+  @for (row of rows; track $index) {
+    <div class="row">
+      @for (key of row; track key.letter) {
+        <app-key
+          [letter]="key.letter"
+          [status]="key.status"
+          (pressed)="onLetterPressed($event)"
+        />
+      }
+    </div>
+  }
+</div>

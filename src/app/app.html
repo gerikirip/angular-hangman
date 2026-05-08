@@ -1,5 +1,6 @@
-<h1>
-  {{ title() }}
-</h1>
+<app-keyboard
+  [guessedLetters]="guessedLetters()"
+  (letterGuessed)="onLetterGuessed($event)"
+/>
 
 <router-outlet />

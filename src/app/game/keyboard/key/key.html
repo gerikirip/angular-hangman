@@ -1,0 +1,9 @@
+<button
+    class="key"
+    [class.correct]="status() === 'correct'"
+    [class.wrong]="status() === 'wrong'"
+    [disabled]="status() !== 'idle'"
+    (click)="onClick()"
+>
+    {{ letter() }}
+</button>
