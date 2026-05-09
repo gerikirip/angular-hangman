@@ -16,4 +16,9 @@ export class Game {
       return next;
     });
   }
+
+  isFailed(): boolean {
+    const wrongCount = [...this.guessedLetters().values()].filter(status => status === 'wrong').length;
+    return wrongCount >= 6; 
+  }
 }

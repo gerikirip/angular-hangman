@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { Game } from './game';
+import { shareReplay } from 'rxjs';
 
 describe('Game', () => {
   let service: Game;
@@ -20,5 +21,16 @@ describe('Game', () => {
     service.word='HANGMAN';
     service.guess('B');
     expect(service.guessedLetters().get('B')).toBe('wrong');
+  });
+
+  it('should return true when wrong guesses reach 6', () => {
+    service.word = 'HANGMAN';
+    service.guess('B');
+    service.guess('C');
+    service.guess('D');
+    service.guess('E');
+    service.guess('F');
+    service.guess('J');
+    expect(service.isFailed()).toBe(true);
   });
 });
