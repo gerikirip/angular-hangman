@@ -5,7 +5,7 @@ import { LetterStatus } from '../models/key.model';
   providedIn: 'root',
 })
 export class Game {
-  word = '';
+  word = 'HANGMAN';
   guessedLetters = signal<Map<string, LetterStatus>>(new Map());
 
   guess(letter: string): void {
