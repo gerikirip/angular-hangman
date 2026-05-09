@@ -18,7 +18,11 @@ export class Game {
   }
 
   isFailed(): boolean {
-    const wrongCount = [...this.guessedLetters().values()].filter(status => status === 'wrong').length;
-    return wrongCount >= 6; 
+    return [...this.guessedLetters().values()].filter(status => status === 'wrong').length >= 6; 
+  }
+
+  isWon(): boolean {
+    const uniqueLetters = [...new Set(this.word.split(''))];
+    return uniqueLetters.every(letter => this.guessedLetters().get(letter) === 'correct');
   }
 }
